@@ -65,3 +65,40 @@ dumpproc  extensions  installer  loganalytics  network  os  plugin  process  sdk
 
 ```
 
+### lets monitor sample webapp using  httpd server 
+
+### setup httpd on linux 
+
+```
+dnf install httpd -y 
+
+ 35  systemctl enable --now httpd
+   36  systemctl status httpd
+```
+
+### deploy sample ui app to httpd
+
+```
+root@ip-172-31-2-143 tmp]# dnf install git -y 
+Last metadata expiration check: 0:05:11 ago on Mon Jul 21 07:04:47 2025.
+Package git-2.47.1-1.amzn2023.0.3.x86_64 is already installed.
+Dependencies resolved.
+Nothing to do.
+Complete!
+[root@ip-172-31-2-143 tmp]# cd /tmp/
+[root@ip-172-31-2-143 tmp]# git clone https://github.com/schoolofdevops/html-sample-app.git
+Cloning into 'html-sample-app'...
+remote: Enumerating objects: 74, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 74 (delta 0), reused 0 (delta 0), pack-reused 71 (from 1)
+Receiving objects: 100% (74/74), 1.38 MiB | 37.21 MiB/s, done.
+Resolving deltas: 100% (5/5), done.
+[root@ip-172-31-2-143 tmp]# 
+
+```
+### copy code to specific location 
+
+```
+cp -rf /tmp/html-sample-app/*  /var/www/html/
+```
