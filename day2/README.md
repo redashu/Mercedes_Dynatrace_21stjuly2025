@@ -76,3 +76,48 @@ ss -nlt | grep 5432
 
 ```
 
+### copy csv file content to table 
+
+```
+root@ip-172-31-12-29:/tmp# sudo -u postgres psql
+psql (16.9 (Ubuntu 16.9-0ubuntu0.24.04.1))
+Type "help" for help.
+
+postgres=# \l
+                                                   List of databases
+   Name    |  Owner   | Encoding | Locale Provider | Collate |  Ctype  | ICU Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+---------+---------+------------+-----------+-----------------------
+ dynatrace | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ postgres  | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | 
+ template0 | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |         |         |            |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | C.UTF-8 | C.UTF-8 |            |           | =c/postgres          +
+           |          |          |                 |         |         |            |           | postgres=CTc/postgres
+(4 rows)
+
+postgres=# \c dynatrace 
+You are now connected to database "dynatrace" as user "postgres".
+dynatrace=# \copy employees FROM '/tmp/absenteeism.csv' DELIMITER ',' CSV;
+COPY 8336
+dynatrace=# 
+
+
+```
+
+### creating user 
+
+```
+dynatrace=# CREATE USER dynatrace WITH PASSWORD 'Redhat@123' INHERIT;
+CREATE ROLE
+dynatrace=# GRANT pg_monitor TO dynatrace; \
+GRANT ROLE
+invalid command \
+Try \? for help.
+dynatrace=# GRANT pg_monitor TO dynatrace;
+NOTICE:  role "dynatrace" has already been granted membership in role "pg_monitor" by role "postgres"
+GRANT ROLE
+dynatrace=# ALTER USER dynatrace WITH SUPERUSER;
+ALTER ROLE
+dynatrace=# \q
+
+```
