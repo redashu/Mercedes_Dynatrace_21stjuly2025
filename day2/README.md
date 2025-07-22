@@ -62,3 +62,17 @@ CREATE TABLE
 dynatrace=# 
 dynatrace=# 
 ```
+
+## changing config file 
+
+```
+sudo vim /etc/postgresql/16/main/postgresql.conf listen_addresses = '*'
+
+sudo vim /etc/postgresql/16/main/pg_hba.conf host all all 0.0.0.0/0 md5
+
+sudo systemctl restart postgresql
+
+ss -nlt | grep 5432
+
+```
+
