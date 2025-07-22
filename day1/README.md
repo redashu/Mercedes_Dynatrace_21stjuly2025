@@ -102,3 +102,24 @@ Resolving deltas: 100% (5/5), done.
 ```
 cp -rf /tmp/html-sample-app/*  /var/www/html/
 ```
+
+## for problem section demo in oneagent  
+
+```
+root@ip-172-31-2-143 tmp]# df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       30G  3.3G   27G  11% /
+[root@ip-172-31-2-143 tmp]# fallocate  -l 25G /ashu.txt 
+[root@ip-172-31-2-143 tmp]# 
+[root@ip-172-31-2-143 tmp]# df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       30G   29G  1.7G  95% /
+[root@ip-172-31-2-143 tmp]# 
+[root@ip-172-31-2-143 tmp]# fallocate  -l 1G /ashu1.txt 
+[root@ip-172-31-2-143 tmp]# 
+[root@ip-172-31-2-143 tmp]# df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       30G   30G  676M  98% /
+[root@ip-172-31-2-143 tmp]# 
+
+```
