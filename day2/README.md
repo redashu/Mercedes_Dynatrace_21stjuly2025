@@ -35,3 +35,30 @@ sudo apt install postgresql postgresql-contrib
 service postgresql status
 
 ```
+
+### login to psql 
+
+```
+sudo -u postgres psql
+
+===>
+
+postgres=# \password postgres
+Enter new password for user "postgres": 
+Enter it again: 
+postgres=# 
+
+
+==>
+CREATE DATABASE dynatrace;
+
+postgres=# \c dynatrace
+You are now connected to database "dynatrace" as user "postgres".
+dynatrace=# 
+
+===>
+create table employees (employee_number int8, lastname varchar, name varchar, gender varchar, city varchar, job_title varchar, department varchar, store_location varchar, division varchar, age float8, length_service float8, abset_hours float8, business_unit varchar);
+CREATE TABLE
+dynatrace=# 
+dynatrace=# 
+```
