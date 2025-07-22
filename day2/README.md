@@ -121,3 +121,9 @@ ALTER ROLE
 dynatrace=# \q
 
 ```
+
+### connecting postgresql from remote location 
+
+```
+psql -h 52.65.175.245   -p 5432 -d dynatrace -U dynatrace
+```
