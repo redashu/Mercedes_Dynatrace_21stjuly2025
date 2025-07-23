@@ -125,3 +125,8 @@ performance_schema=ON
 ```
 systemctl restart mariadb
 ```
+
+## Dynatrace to k8s basic things to know 
+
+<img src="dn1.png">
+
