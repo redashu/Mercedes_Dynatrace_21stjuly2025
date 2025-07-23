@@ -119,3 +119,9 @@ log-error=/var/log/mariadb/mariadb.log
 pid-file=/run/mariadb/mariadb.pid
 performance_schema=ON
 ```
+
+### restart mariadb server
+
+```
+systemctl restart mariadb
+```
