@@ -1,0 +1,43 @@
+apiVersion: v1
+data:
+  apiToken: ZHQwYzAxLlVOSk01WVFJTlRaSU9DTFBaQU1KQlVKVS5JTlo1RFJWMkw0QVo1UVVRTTRPMkdNMlJGU0wzWEZFUUtPWkhQRktVMk5NWFIzRFRDMkNSQkROR0RXSk9CRklB
+kind: Secret
+metadata:
+  name: mercedes-k8s
+  namespace: dynatrace
+type: Opaque
+---
+apiVersion: dynatrace.com/v1beta4
+kind: DynaKube
+metadata:
+  name: mercedes-k8s
+  namespace: dynatrace
+  annotations:
+    feature.dynatrace.com/k8s-app-enabled: "true"
+# Link to api reference for further information: https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/reference/dynakube-parameters
+spec:
+  apiUrl: https://hzq91798.live.dynatrace.com/api
+  metadataEnrichment:
+    enabled: true
+  oneAgent:
+    cloudNativeFullStack:
+      tolerations:
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/master
+          operator: Exists
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/control-plane
+          operator: Exists
+  activeGate:
+    capabilities:
+      - routing
+      - kubernetes-monitoring
+      - debugging
+    resources:
+      requests:
+        cpu: 500m
+        memory: 1.5Gi
+      limits:
+        cpu: 1000m
+        memory: 1.5Gi
+  logMonitoring: {}
