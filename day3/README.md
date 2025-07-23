@@ -40,3 +40,10 @@ phpinfo();
 [root@ip-172-31-2-143 ~]# 
 
 ```
+
+### to verify 
+
+```
+http://ipaddress/info.php
+
+```
