@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:ListMetrics",
+                "ec2:DescribeInstances",
+                "ec2:DescribeVolumes",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "rds:DescribeDBInstances",
+                "lambda:ListFunctions",
+                "cloudformation:ListStackResources",
+                "tag:GetResources"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
